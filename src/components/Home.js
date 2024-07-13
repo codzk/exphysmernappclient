@@ -19,11 +19,13 @@ const Home = () => {
                 </p>
                 <button>Get Started</button>
             </div>
-            <div className="home-image">
-                <img src={homeImage} alt="Home" />
+            <div className="home-image-container">
+                <div className="home-image-background"></div>
+                <img src={homeImage} alt="home" className="home-image"/>
             </div>
+           
         </section>
     );
-}
+}   
 
 export default Home;

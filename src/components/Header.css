@@ -5,7 +5,7 @@
     justify-content: space-between;
     align-items: center;
     padding: 20px 40px;
-    background-color: #E7E4E4;
+    background-color: #F0F0FA;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     font-family: 'Libre Franklin', sans-serif;
 
@@ -19,7 +19,7 @@
 nav ul {
     list-style: none;
     display: flex;
-    gap: 30px;
+    gap: 50px;
     margin:0;
     padding:0;
 }
