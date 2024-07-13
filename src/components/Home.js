@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from 'react-scroll';
 import './Home.css';
 import homeImage from  '../assets/home.jpg'
 
@@ -17,7 +18,9 @@ const Home = () => {
                 <p>
                 AEPs in Australia are highly trained professionals who complete a rigorous four-year university degree. They specialize in designing clinical exercise programs for individuals with a wide range of health issues, including chronic diseases, musculoskeletal injuries, and mental health conditions.
                 </p>
-                <button>Get Started</button>
+                <Link to="about-section" smooth={true} duration={500}>
+                        <button>Get Started</button>
+                </Link>
             </div>
             <div className="home-image-container">
                 <div className="home-image-background"></div>

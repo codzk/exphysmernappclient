@@ -4,6 +4,7 @@ import aboutImage from '../assets/epimage.jpg';
 
 const About = () => {
     return (
+        <div id="about-section">
         <section className="about">
             <div className="about-image-container">
                 <div className="about-image-background"></div>
@@ -27,6 +28,7 @@ const About = () => {
                 </p>
             </div>
         </section>
+        </div>
     );
 
 }
