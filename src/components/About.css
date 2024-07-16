@@ -33,7 +33,7 @@
     margin-bottom: 20px;
     text-align: justify;
     color:#37331A;
-}
+}   
 
 .about-image-container {
     position: relative;
@@ -61,3 +61,26 @@
     z-index: 1;
     border-radius: 20px;
 }
+
+@media (max-width: 768px) {
+    .about {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .about-text, .about-image-container {
+        max-width: 100%;
+        margin: 0;
+    
+    }
+    
+    .about-image-container {
+        margin-top: 20px;
+    }
+    
+    .about-image-background {
+        bottom: -10px;
+        height: 30px;
+    }   
+}
+

@@ -77,19 +77,20 @@
         flex-direction: column;
         text-align: center;
     }
-}
-
-.home-text, .home-image-container {
-    max-width: 100%;
-    margin: 0;
-}
-
-.home-image-container {
-    margin-top: 20px;
-}
-
-.home-image-background {
-    bottom: -10px;
-    height: 30px;
+    .home-text, .home-image-container {
+        max-width: 100%;
+        margin: 0;
+    }
+    
+    .home-image-container {
+        margin-top: 20px;
+    }
+    
+    .home-image-background {
+        bottom: -10px;
+        height: 30px;
+    }
+    
+    
 }
 
