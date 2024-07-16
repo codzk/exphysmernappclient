@@ -4,7 +4,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 40px 20px;
+    padding: 40px 60px;
     background-color:#F0F0FA ;
     font-family: 'Libre Franklin', sans-serif;
 }
@@ -56,8 +56,8 @@
 
 .about-image {
     max-width: 100%;
-    padding-left: 20px;
     height: auto;
     position: relative;
     z-index: 1;
+    border-radius: 20px;
 }

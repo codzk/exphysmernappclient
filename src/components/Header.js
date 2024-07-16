@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from 'react-router-dom';
+import { Link } from 'react-scroll';
 import './Header.css';
 import logo from '../assets/logo.png'
 
@@ -11,9 +11,9 @@ const Header = () => {
             </div>
             <nav>
                 <ul>
-                    <li><Link to="/services">Our Services</Link></li>
+                    <li><Link to="services-section" smooth={true} duration={500}>Our Services</Link></li>
                     <li><a href="tel:0412345678">0412345678</a></li>
-                    <li><Link to= "/book">Book</Link></li>
+                    <li><Link to= "#book-section" smooth={true} duration={500}>Book</Link></li>
                 </ul>
             </nav>
         </header>
