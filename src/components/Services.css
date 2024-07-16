@@ -71,5 +71,25 @@
     
 }
 
+@media (max-width: 768px) {
+    .services {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .services-text, .services-image-container {
+        max-width: 100%;
+        margin: 0;
+    }
+
+    .services-image-container {
+        margin-top: 20px;
+    }
+
+    .services-image-background {
+        bottom: -10px;
+        height: 30px;
+    }
+}
 
 
