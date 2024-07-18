@@ -1,0 +1,104 @@
+@import url('https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400;500;700&display=swap');
+
+.contact {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 40px 60px;
+    background-color: #F0F0FA;
+    font-family: 'Libre Franklin', sans-serif;
+}
+
+.contact-image-container {
+    position: relative;
+    max-width: 40%;
+
+}
+
+.contact-image-container::after {
+    content: '';
+    position: absolute;
+    bottom: -20px;
+    left: 0;
+    width: 100%;
+    height: 50px;
+    background-color: #E7E4E4;
+    padding: 30px 20px;
+    z-index: -0.5;
+}
+
+.contact-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 20px;
+    position: relative;
+    z-index: 1;
+}
+.contact-form-container {
+    padding: 20px 200px 20px 200px;
+}
+
+.contact-form-container h2 {
+    font-size: 2.5em;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: #37331A;
+}
+
+.contact-form-container p {
+    font-size: 1.2em;
+    font-weight: 400;
+    margin-bottom: 20px;
+    color: 37331A;
+}
+
+.contact-form-container form {
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-form-container input, .contact-form-container textarea {
+    padding: 10px;
+    margin-bottom: 20px;
+    font-size: 1em;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #E7E4E4;
+}
+
+.contact-form-container button {
+    padding: 12px 24px;
+    font-size: 1.2em;
+    font-weight: 500;
+    background-color: #E7E4E4;
+    color: #37331A;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.contact-form-container button:hover {
+    background-color: #5B6C5D;
+}
+
+@media (max-width: 768px){
+    .contact {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .contact-image-container, .contact-form-container {
+        max-width: 100%;
+        margin: 0;
+    }
+
+    .contact-image-container {
+        margin-top: 20px;
+    }
+
+    .contact-image-background {
+        bottom: -10px;
+        height: 30px;
+    }
+}
