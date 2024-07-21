@@ -13,7 +13,7 @@ const Header = () => {
                 <ul>
                     <li><Link to="services-section" smooth={true} duration={500}>Our Services</Link></li>
                     <li><a href="tel:0412345678">0412345678</a></li>
-                    <li><Link to= "#book-section" smooth={true} duration={500}>Book</Link></li>
+                    <li><Link to= "contact-section" smooth={true} duration={500}>Book</Link></li>
                 </ul>
             </nav>
         </header>

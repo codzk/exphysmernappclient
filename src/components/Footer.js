@@ -13,7 +13,7 @@ const Footer = () => {
             <div className="footer-links">
                 <Link to="services-section" smooth={true} duration={500}>Our Services</Link>
                 <a href="tel:0412345678">0412345678</a>
-                <Link to="book-section" smooth={true} duration={500}>Book</Link>
+                <Link to="contact-section" smooth={true} duration={500}>Book</Link>
                 <a href="#admin-login">Admin Login</a>
 
             </div>
