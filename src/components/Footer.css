@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400;500;700&display=swap');
+
+.footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    background-color: #56C8A6;
+    color: #F0F0FA;
+    font-family: 'Libre Franklin', sans-serif;
+}
+
+.footer-logo img {
+    height: 50px;
+}
+
+.footer-links {
+    display: flex;
+    gap: 50px;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.footer-links a {
+    color: #F0F0FA;
+    text-decoration: none;
+    font-size: 0.5em;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: #ccc;
+}
+
+.footer-bottom {
+    width: 100%;
+    text-align: center;
+    font-size: 0.8em;
+    position: absolute;
+    /* /* bottom: 0;
+    left: 0;
+    right: 0; */
+    
+    
+}
+
+@media (max-width: 768px) {
+    .footer {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .footer-logo {
+        margin-bottom: 10px;
+    }
+
+    .footer-links {
+        margin-bottom: 10px;
+    }
+
+    .footer-bottom {
+        margin-left: 0;
+    }
+}
