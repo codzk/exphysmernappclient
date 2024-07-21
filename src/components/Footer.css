@@ -8,6 +8,8 @@
     background-color: #56C8A6;
     color: #F0F0FA;
     font-family: 'Libre Franklin', sans-serif;
+    position: relative;
+    flex-wrap: wrap;
 }
 
 .footer-logo img {
@@ -16,15 +18,15 @@
 
 .footer-links {
     display: flex;
-    gap: 50px;
+    gap: 20px;
     align-items: center;
-    margin-top: 10px;
+    margin-left: auto;
 }
 
 .footer-links a {
     color: #F0F0FA;
     text-decoration: none;
-    font-size: 0.5em;
+    font-size: 1em;
     transition: color 0.3s ease;
 }
 
@@ -36,10 +38,8 @@
     width: 100%;
     text-align: center;
     font-size: 0.8em;
-    position: absolute;
-    /* /* bottom: 0;
-    left: 0;
-    right: 0; */
+    margin-top: 10px;
+    flex-basis: 100%;
     
     
 }
