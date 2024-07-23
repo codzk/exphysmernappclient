@@ -4,12 +4,15 @@ import footerLogo from '../assets/footerlogo.png';
 import { Link } from 'react-scroll';
 
 
-const Footer = () => {
+const Footer = ({ showLinks, showLogo}) => {
     return (
         <footer className="footer">
+            {showLogo && (
             <div className="footer-logo">
                 <img src={footerLogo} alt="ExPhys Clinic Logo" />
             </div>
+            )}
+            {showLinks && (
             <div className="footer-links">
                 <Link to="services-section" smooth={true} duration={500}>Our Services</Link>
                 <a href="tel:0412345678">0412345678</a>
@@ -17,6 +20,7 @@ const Footer = () => {
                 <a href="admin-login">Admin Login</a>
 
             </div>
+            )}
             <div className="footer-bottom">
                 <p>&copy; ExPhys Clinic 2024. All Rights Reserved.</p>
             </div>

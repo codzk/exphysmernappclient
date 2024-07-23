@@ -26,7 +26,7 @@ function App() {
             <Route path="/admin-login" element={<AdminLogin/>}/>
         </Routes> 
       </main>
-      <Footer/>
+      <FooterWithCondition/>
     </Router>
   );
 }
@@ -35,6 +35,12 @@ function HeaderWithCondition() {
   const location = useLocation();
   const isAdminLogin = location.pathname === '/admin-login';
   return <Header showLinks={!isAdminLogin} showLogo={!isAdminLogin} />;
+}
+
+function FooterWithCondition() {
+  const location = useLocation();
+  const isAdminLogin = location.pathname === '/admin-login';
+  return <Footer showLinks={!isAdminLogin} showLogo={!isAdminLogin} />;
 }
 
 export default App;
