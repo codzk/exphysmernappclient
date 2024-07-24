@@ -17,7 +17,7 @@ const Contact = () => {
                     <input type="email" name="email" required />
                     
                     <label>Phone Number:</label>
-                    <input type="tel" name="phone" reaquired />
+                    <input type="tel" name="phone" required />
 
                     <label>How can we help?</label>
                     <textarea name="message" required></textarea>

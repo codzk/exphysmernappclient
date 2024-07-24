@@ -1,0 +1,68 @@
+@import url('https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400;500;700&display=swap');
+
+.admin-login {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-color: #F0F0FA;
+    font-family: 'Libre Franklin', sans-serif;
+}
+
+.admin-logo img {
+    margin-bottom: 40px;
+}
+
+
+.login-container {
+    background-color: #F1F3F9;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px  rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    width: 100%;
+    text-align: center;
+}
+
+.login-container h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+    color: #37331A;
+}
+
+.login-container label {
+    display: block;
+    text-align: left;
+    margin-bottom: 10px;
+    color: #37331A;
+    font-weight: 500;
+}
+
+.login-container input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid  #ccc;
+    border-radius: 5px;
+    font-size: 1em;
+}
+
+.login-container button {
+    width: 100%;
+    padding: 12px;
+    background-color: #E7E4E4;
+    color: #37331A;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.2em;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+
+}
+
+.login-container button:hover {
+    background-color: #5B6C5D;
+}
+

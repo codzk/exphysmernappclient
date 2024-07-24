@@ -7,26 +7,24 @@ import About from './components/About';
 import Services from './components/Services';
 import Contact from './components/Contact';
 import AdminLogin from './components/AdminLogin';
-
 import './App.css';
 
 function App() {
   return (
-
     <Router>
       <HeaderWithCondition />
       <main>
         <Routes>
-          <Route path="/" element= {<>
-            <Home/>
-            <About/>
-            <Services/>
-            <Contact/>
-        </>} />
-            <Route path="/admin-login" element={<AdminLogin/>}/>
-        </Routes> 
+          <Route path="/" element={<>
+            <Home />
+            <About />
+            <Services />
+            <Contact />
+          </>} />
+          <Route path="/admin-login" element={<AdminLogin />} />
+        </Routes>
       </main>
-      <FooterWithCondition/>
+      <FooterWithCondition />
     </Router>
   );
 }
