@@ -1,10 +1,6 @@
 import React, { useState } from 'react';
 import './AdminDashboard.css';
-import adminDashboardImage from '../assets/logo.png';
-import dashboardIcon from '../assets/dashboard (1).png';
-import clientsIcon from '../assets/customer.png';
-import inboxIcon from '../assets/chat.png';
-import logoutIcon from '../assets/log-out.png';
+import Sidebar from './Sidebar';
 
 const AdminDashboard = () => {
     const [appointments, setAppointments] = useState([]);
@@ -28,20 +24,7 @@ const AdminDashboard = () => {
 
     return (
         <div className="admin-dashboard">
-            <div className="sidebar">
-                <div className="sidebar-logo">
-                    <img src={adminDashboardImage} alt="ExPhys Clinic Logo" />
-                </div>
-                <h2>Welcome Admin!</h2>
-                <nav>
-                    <ul>
-                        <li><img src={dashboardIcon} alt="Dashboard" /> <span>Dashboard</span></li>
-                        <li><img src={clientsIcon} alt="Clients" /> <span>Clients</span></li>
-                        <li><img src={inboxIcon} alt="Inbox" /> <span>Inbox</span></li>
-                        <li><img src={logoutIcon} alt="Log Out" /> <span>Log Out</span></li>
-                    </ul>
-                </nav>
-            </div>
+            <Sidebar />
             <div className="main-content">
                 <h3>Overview of Appointments</h3>
                 <table className="appointments-table">

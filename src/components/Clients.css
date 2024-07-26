@@ -66,30 +66,30 @@
     margin-bottom: 20px;
 }
 
-.appointments-table {
+.clients-table {
     width: 100%;
     border-collapse: collapse;
     margin-bottom: 40px;
 }
 
-.appointments-table th, .appointments-table td {
+.clients-table th, .clients-table td {
     border: 1px solid #ccc;
     padding: 10px;
     text-align: left;
 }
 
-.add-appointment-form {
+.add-client-form {
     display: flex;
     flex-direction: column;
 }
 
-.add-appointment-form label {
+.add-client-form label {
     display: block;
     margin-bottom: 10px;
     color: #37331A;
 }
 
-.add-appointment-form input, .add-appointment-form select {
+.add-client-form input, .add-client-form select {
     width: 100%;
     padding: 10px;
     margin-bottom: 20px;
@@ -97,7 +97,7 @@
     border-radius: 5px;
 }
 
-.add-appointment-form button {
+.add-client-form button {
     padding: 12px;
     background-color: #E7E4E4;
     color: #37331A;
@@ -109,6 +109,6 @@
     transition: background-color 0.3s ease;
 }
 
-.add-appointment-form button:hover {
+.add-client-form button:hover {
     background-color: #5B6C5D;
 }
