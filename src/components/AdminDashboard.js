@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './AdminDashboard.css';
+import adminDashboardImage from '../assets/logo.png';
 
 const AdminDashboard = () => {
     const [appointments, setAppointments] = useState([]);
@@ -25,7 +26,7 @@ const AdminDashboard = () => {
         <div className="admin-dashboard">
             <div className="sidebar">
                 <div className="sidebar-logo">
-                    <img src="/path/to/logo.png" alt="ExPhys Clinic Logo" />
+                    <img src={adminDashboardImage} alt="ExPhys Clinic Logo" />
                 </div>
                 <h2>Welcome Admin!</h2>
                 <nav>

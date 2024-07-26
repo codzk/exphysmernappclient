@@ -7,6 +7,7 @@ import About from './components/About';
 import Services from './components/Services';
 import Contact from './components/Contact';
 import AdminLogin from './components/AdminLogin';
+import AdminDashboard from './components/AdminDashboard';
 import './App.css';
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
             <Contact />
           </>} />
           <Route path="/admin-login" element={<AdminLogin />} />
+          <Route path="/admin-dashboard" element={<AdminDashboard />} />
         </Routes>
       </main>
       <FooterWithCondition />
@@ -31,14 +33,14 @@ function App() {
 
 function HeaderWithCondition() {
   const location = useLocation();
-  const isAdminLogin = location.pathname === '/admin-login';
-  return <Header showLinks={!isAdminLogin} showLogo={!isAdminLogin} />;
+  const isSpecialRoute = location.pathname === '/admin-login' || location.pathname === '/admin-dashboard';
+  return <Header showLinks={!isSpecialRoute} showLogo={!isSpecialRoute} />;
 }
 
 function FooterWithCondition() {
   const location = useLocation();
-  const isAdminLogin = location.pathname === '/admin-login';
-  return <Footer showLinks={!isAdminLogin} showLogo={!isAdminLogin} />;
+  const isSpecialRoute = location.pathname === '/admin-login' || location.pathname === '/admin-dashboard';
+  return <Footer showLinks={!isSpecialRoute} showLogo={!isSpecialRoute} />;
 }
 
 export default App;
