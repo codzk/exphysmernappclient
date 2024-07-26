@@ -33,14 +33,14 @@ function App() {
 
 function HeaderWithCondition() {
   const location = useLocation();
-  const isSpecialRoute = location.pathname === '/admin-login' || location.pathname === '/admin-dashboard';
-  return <Header showLinks={!isSpecialRoute} showLogo={!isSpecialRoute} />;
+  const isAdminPage = location.pathname === '/admin-login' || location.pathname === '/admin-dashboard';
+  return <Header showLinks={!isAdminPage} showLogo={!isAdminPage} />;
 }
 
 function FooterWithCondition() {
   const location = useLocation();
-  const isSpecialRoute = location.pathname === '/admin-login' || location.pathname === '/admin-dashboard';
-  return <Footer showLinks={!isSpecialRoute} showLogo={!isSpecialRoute} />;
+  const isAdminPage = location.pathname === '/admin-login' || location.pathname === '/admin-dashboard';
+  return <Footer showLinks={!isAdminPage} showLogo={!isAdminPage} />;
 }
 
 export default App;

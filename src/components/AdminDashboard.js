@@ -1,6 +1,10 @@
 import React, { useState } from 'react';
 import './AdminDashboard.css';
 import adminDashboardImage from '../assets/logo.png';
+import dashboardIcon from '../assets/dashboard (1).png';
+import clientsIcon from '../assets/customer.png';
+import inboxIcon from '../assets/chat.png';
+import logoutIcon from '../assets/log-out.png';
 
 const AdminDashboard = () => {
     const [appointments, setAppointments] = useState([]);
@@ -31,10 +35,10 @@ const AdminDashboard = () => {
                 <h2>Welcome Admin!</h2>
                 <nav>
                     <ul>
-                        <li>Dashboard</li>
-                        <li>Clients</li>
-                        <li>Inbox</li>
-                        <li>Log Out</li>
+                        <li><img src={dashboardIcon} alt="Dashboard" /> <span>Dashboard</span></li>
+                        <li><img src={clientsIcon} alt="Clients" /> <span>Clients</span></li>
+                        <li><img src={inboxIcon} alt="Inbox" /> <span>Inbox</span></li>
+                        <li><img src={logoutIcon} alt="Log Out" /> <span>Log Out</span></li>
                     </ul>
                 </nav>
             </div>
