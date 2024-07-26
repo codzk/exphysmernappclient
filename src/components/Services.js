@@ -1,29 +1,35 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import dashboardIcon from '../assets/dashboard (1).png';
-import clientsIcon from '../assets/customer.png';
-import inboxIcon from '../assets/chat.png';
-import logoutIcon from '../assets/log-out.png';
-import sidebarLogo from '../assets/logo.png';
-import './Sidebar.css';
+import React from "react";
+import './Services.css';
+import servicesImage from '../assets/services.jpg'
 
-const Sidebar = () => {
+
+
+
+
+
+const Services = () => {
     return (
-        <div className="sidebar">
-            <div className="sidebar-logo">
-                <img src={sidebarLogo} alt="ExPhys Clinic Logo" />
-            </div>
-            <h2>Welcome Admin!</h2>
-            <nav>
-                <ul>
-                    <li><img src={dashboardIcon} alt="Dashboard" /> <Link to="/admin-dashboard">Dashboard</Link></li>
-                    <li><img src={clientsIcon} alt="Clients" /> <Link to="/clients">Clients</Link></li>
-                    <li><img src={inboxIcon} alt="Inbox" /> <Link to="/inbox">Inbox</Link></li>
-                    <li><img src={logoutIcon} alt="Log Out" /> Log Out</li>
-                </ul>
-            </nav>
-        </div>
-    );
-};
+        <section className="services" id="services-section">
+            <div className="services-text">
+                <h2>Our Services</h2>
 
-export default Sidebar;
+
+
+                <ul>
+                    <li>Home Visit</li>
+                    <li>1:1 Gym Session</li>
+                    <li>Hydrotherapy</li>
+                    <li>Telehealth</li>
+                </ul>
+
+        </div>
+            <div className="services-image-container">
+                <div className="services-image-background"></div>
+                <img src={servicesImage} alt="Service" className="services-image"/>
+            </div>
+        </section>
+        
+    );
+}
+
+export default Services;

@@ -11,7 +11,7 @@ const Sidebar = () => {
     const navigate = useNavigate();
 
     const handleLogout = () => {
-    
+        // Perform any necessary logout actions here (e.g., clearing tokens, state)
         navigate('/admin-login');
     };
 
