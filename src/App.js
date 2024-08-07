@@ -10,7 +10,7 @@ import AdminLogin from './components/AdminLogin';
 import AdminDashboard from './components/AdminDashboard';
 import Clients from './components/Clients';
 import Inbox from './components/Inbox';
-import PrivateRoute from './components/PrivateRoute';
+import ProtectedRoute from './ProtectedRoute';
 import './App.css';
 
 function App() {
@@ -26,9 +26,9 @@ function App() {
             <Contact />
           </>} />
           <Route path="/admin-login" element={<AdminLogin />} />
-          <Route path="/admin-dashboard" element={<PrivateRoute><AdminDashboard /></PrivateRoute>} />
-          <Route path="/clients" element={<PrivateRoute><Clients /></PrivateRoute>} />
-          <Route path="/inbox" element={<PrivateRoute><Inbox /></PrivateRoute>} />
+          <Route path="/admin-dashboard" element={<ProtectedRoute element={AdminDashboard} />} />
+          <Route path="/clients" element={<ProtectedRoute element={Clients} />} />
+          <Route path="/inbox" element={<ProtectedRoute element={Inbox} />} />
         </Routes>
       </main>
       <FooterWithCondition />
