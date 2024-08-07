@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+// eslint-disable-next-line no-unused-vars
 import { fetchAppointments, createAppointment, updateAppointment, deleteAppointment } from '../api';
 
 const AdminDashboard = () => {
