@@ -10,6 +10,7 @@ import AdminLogin from './components/AdminLogin';
 import AdminDashboard from './components/AdminDashboard';
 import Clients from './components/Clients';
 import Inbox from './components/Inbox';
+import PrivateRoute from './components/PrivateRoute';
 import './App.css';
 
 function App() {
@@ -25,9 +26,9 @@ function App() {
             <Contact />
           </>} />
           <Route path="/admin-login" element={<AdminLogin />} />
-          <Route path="/admin-dashboard" element={<AdminDashboard />} />
-          <Route path="/clients" element={<Clients />} />
-          <Route path="/inbox" element={<Inbox />} />
+          <Route path="/admin-dashboard" element={<PrivateRoute><AdminDashboard /></PrivateRoute>} />
+          <Route path="/clients" element={<PrivateRoute><Clients /></PrivateRoute>} />
+          <Route path="/inbox" element={<PrivateRoute><Inbox /></PrivateRoute>} />
         </Routes>
       </main>
       <FooterWithCondition />

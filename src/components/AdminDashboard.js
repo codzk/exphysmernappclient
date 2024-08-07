@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 // eslint-disable-next-line no-unused-vars
 import { fetchAppointments, createAppointment, updateAppointment, deleteAppointment } from '../api';
+import './AdminDashboard.css';
 
 const AdminDashboard = () => {
     const [appointments, setAppointments] = useState([]);
