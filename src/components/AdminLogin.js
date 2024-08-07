@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import "./AdminLogin.css";
-import api from '../axios'; // Ensure this points to your axios instance
+import api from '../axios';
 import adminLogo from '../assets/logo.png';
 
 const AdminLogin = () => {
@@ -13,7 +13,7 @@ const AdminLogin = () => {
     const handleLogin = async (e) => {
         e.preventDefault();
         try {
-            const response = await api.post('/api/admin/login', { email, password });
+            const response = await api.post('/admin/login', { email, password });
             if (response.data.token) {
                 localStorage.setItem('token', response.data.token);
                 navigate('/admin-dashboard');

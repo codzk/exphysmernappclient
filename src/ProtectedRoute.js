@@ -1,10 +1,11 @@
 import React from 'react';
-import { Navigate } from 'react-router-dom';
+// eslint-disable-next-line no-unused-vars
+import { Route, Navigate } from 'react-router-dom';
 
-const ProtectedRoute = ({ element: Component }) => {
+const ProtectedRoute = ({ element: Component, ...rest }) => {
   const token = localStorage.getItem('token');
 
-  return token ? <Component /> : <Navigate to="/admin-login" />;
+  return token ? <Component {...rest} /> : <Navigate to="/admin-login" />;
 };
 
 export default ProtectedRoute;
