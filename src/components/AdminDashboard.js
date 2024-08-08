@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './AdminDashboard.css';
 import Sidebar from './Sidebar';
-import api from '../axios';
+import api from '../api';
 
 const AdminDashboard = () => {
     const [appointments, setAppointments] = useState([]);

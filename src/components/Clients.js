@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './Clients.css';
 import Sidebar from './Sidebar';
-import api from '../axios';
+import api from '../api';
 
 // Fetch all clients from the backend
 const fetchClients = async () => {

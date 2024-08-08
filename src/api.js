@@ -1,40 +1,37 @@
-import api from './axios';
 
-export const fetchAppointments = async () => {
-    try {
-        const response = await api.get('/appointments');
-        return response.data;
-    } catch (error) {
-        console.error('Error fetching appointments:', error);
-        throw new Error('Failed to fetch appointments');
-    }
-};
+import axios from 'axios';
 
-export const createAppointment = async (appointmentData) => {
-    try {
-        const response = await api.post('/appointments', appointmentData);
-        return response.data;
-    } catch (error) {
-        console.error('Error creating appointment:', error);
-        throw new Error('Failed to create appointment');
-    }
-};
+const api = axios.create({
+  baseURL: process.env.REACT_APP_API_URL,
+});
 
-export const updateAppointment = async (id, appointmentData) => {
-    try {
-        const response = await api.put(`/appointments/${id}`, appointmentData);
-        return response.data;
-    } catch (error) {
-        console.error('Error updating appointment:', error);
-        throw new Error('Failed to update appointment');
+// Add a request interceptor to include the token in the headers
+api.interceptors.request.use(
+  config => {
+    const token = localStorage.getItem('token'); 
+    if (token) {
+      config.headers.Authorization = `Bearer ${token}`;
     }
-};
+    return config;
+  },
+  error => Promise.reject(error)
+);
 
-export const deleteAppointment = async (id) => {
-    try {
-        await api.delete(`/appointments/${id}`);
-    } catch (error) {
-        console.error('Error deleting appointment:', error);
-        throw new Error('Failed to delete appointment');
+
+// Response interceptor to handle errors globally
+api.interceptors.response.use(
+    (response) => {
+        return response;
+    },
+    (error) => {
+        // Handle specific status codes or general error handling here
+        if (error.response && error.response.status === 401) {
+            // For example, if you get a 401 error, you might want to log the user out
+            localStorage.removeItem('token');
+            window.location.href = '/admin-login';
+        }
+        return Promise.reject(error);
     }
-};
+);
+
+export default api;
