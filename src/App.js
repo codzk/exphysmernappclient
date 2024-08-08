@@ -26,9 +26,21 @@ function App() {
             <Contact />
           </>} />
           <Route path="/admin-login" element={<AdminLogin />} />
-          <Route path="/admin-dashboard" element={<ProtectedRoute element={AdminDashboard} />} />
-          <Route path="/clients" element={<ProtectedRoute element={Clients} />} />
-          <Route path="/inbox" element={<ProtectedRoute element={Inbox} />} />
+          <Route path="/admin-dashboard" element={
+            <ProtectedRoute>
+              <AdminDashboard />
+            </ProtectedRoute>
+          } />
+          <Route path="/clients" element={
+            <ProtectedRoute>
+              <Clients />
+            </ProtectedRoute>
+          } />
+          <Route path="/inbox" element={
+            <ProtectedRoute>
+              <Inbox />
+            </ProtectedRoute>
+          } />
         </Routes>
       </main>
       <FooterWithCondition />
