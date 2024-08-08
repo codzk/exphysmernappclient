@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './Clients.css';
 import Sidebar from './Sidebar';
+import { fetchClients, createClient, deleteClient } from '../clientService';
 
 const Clients = () => {
     const [clients, setClients] = useState([]);
@@ -11,15 +12,42 @@ const Clients = () => {
         gp: ''
     });
 
+    useEffect(() => {
+        const loadClients = async () => {
+            try {
+                const clientsData = await fetchClients();
+                setClients(clientsData);
+            } catch (error) {
+                console.error('Error fetching clients:', error);
+            }
+        };
+
+        loadClients();
+    }, []);
+
     const handleInputChange = (e) => {
         const { name, value } = e.target;
         setNewClient({ ...newClient, [name]: value });
     };
 
-    const addClient = (e) => {
+    const addClient = async (e) => {
         e.preventDefault();
-        setClients([...clients, { ...newClient, id: clients.length + 1 }]);
-        setNewClient({ name: '', dob: '', contact: '', gp: '' });
+        try {
+            const addedClient = await createClient(newClient);
+            setClients([...clients, addedClient]);
+            setNewClient({ name: '', dob: '', contact: '', gp: '' });
+        } catch (error) {
+            console.error('Error adding client:', error);
+        }
+    };
+
+    const handleDeleteClient = async (id) => {
+        try {
+            await deleteClient(id);
+            setClients(clients.filter(client => client._id !== id));
+        } catch (error) {
+            console.error('Error deleting client:', error);
+        }
     };
 
     return (
@@ -34,15 +62,19 @@ const Clients = () => {
                             <th>D.O.B</th>
                             <th>Contact Number</th>
                             <th>GP</th>
+                            <th>Actions</th>
                         </tr>
                     </thead>
                     <tbody>
                         {clients.map(client => (
-                            <tr key={client.id}>
+                            <tr key={client._id}>
                                 <td>{client.name}</td>
                                 <td>{client.dob}</td>
                                 <td>{client.contact}</td>
                                 <td>{client.gp}</td>
+                                <td className="actions">
+                                    <button className="delete-button" onClick={() => handleDeleteClient(client._id)}>Delete</button>
+                                </td>
                             </tr>
                         ))}
                     </tbody>

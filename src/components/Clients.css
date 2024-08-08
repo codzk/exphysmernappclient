@@ -78,6 +78,25 @@
     text-align: left;
 }
 
+.clients-table .actions {
+    display: flex;
+    gap: 10px;
+}
+
+.clients-table .delete-button {
+    padding: 5px 10px;
+    background-color: #FF6B6B;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.clients-table .delete-button:hover {
+    background-color: #FF4C4C;
+}
+
 .add-client-form {
     display: flex;
     flex-direction: column;
