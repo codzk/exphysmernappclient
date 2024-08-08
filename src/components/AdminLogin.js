@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import "./AdminLogin.css";
-import api from '../axios';
+import api from '../axios'; // Ensure this is correctly configured with the base URL
 import adminLogo from '../assets/logo.png';
 
 const AdminLogin = () => {

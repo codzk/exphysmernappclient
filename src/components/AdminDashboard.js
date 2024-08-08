@@ -19,9 +19,7 @@ const AdminDashboard = () => {
 
     const fetchAppointments = async () => {
         try {
-            const response = await api.get('/api/appointments', {
-                headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
-            });
+            const response = await api.get('/appointments');
             setAppointments(response.data);
         } catch (err) {
             console.error('Error fetching appointments:', err);
@@ -37,9 +35,7 @@ const AdminDashboard = () => {
     const addAppointment = async (e) => {
         e.preventDefault();
         try {
-            const response = await api.post('/api/appointments', newAppointment, {
-                headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
-            });
+            const response = await api.post('/appointments', newAppointment);
             setAppointments([...appointments, response.data]);
             setNewAppointment({ date: '', time: '', name: '', status: 'Active' });
             setMessage('Appointment added successfully');
@@ -53,9 +49,7 @@ const AdminDashboard = () => {
 
     const deleteAppointment = async (id) => {
         try {
-            await api.delete(`/api/appointments/${id}`, {
-                headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
-            });
+            await api.delete(`/appointments/${id}`);
             setAppointments(appointments.filter(appointment => appointment._id !== id));
             setMessage('Appointment deleted successfully');
             setError('');

@@ -19,12 +19,14 @@ function App() {
       <HeaderWithCondition />
       <main>
         <Routes>
-          <Route path="/" element={<>
-            <Home />
-            <About />
-            <Services />
-            <Contact />
-          </>} />
+          <Route path="/" element={
+            <>
+              <Home />
+              <About />
+              <Services />
+              <Contact />
+            </>
+          } />
           <Route path="/admin-login" element={<AdminLogin />} />
           <Route path="/admin-dashboard" element={
             <ProtectedRoute>

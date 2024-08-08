@@ -6,7 +6,7 @@ export const fetchClients = async () => {
         return response.data;
     } catch (error) {
         console.error('Error fetching clients:', error);
-        throw error;
+        throw new Error('Failed to fetch clients');
     }
 };
 
@@ -16,7 +16,7 @@ export const createClient = async (clientData) => {
         return response.data;
     } catch (error) {
         console.error('Error creating client:', error);
-        throw error;
+        throw new Error('Failed to create client');
     }
 };
 
@@ -26,7 +26,7 @@ export const updateClient = async (id, clientData) => {
         return response.data;
     } catch (error) {
         console.error('Error updating client:', error);
-        throw error;
+        throw new Error('Failed to update client');
     }
 };
 
@@ -35,6 +35,6 @@ export const deleteClient = async (id) => {
         await api.delete(`/api/clients/${id}`);
     } catch (error) {
         console.error('Error deleting client:', error);
-        throw error;
+        throw new Error('Failed to delete client');
     }
 };
