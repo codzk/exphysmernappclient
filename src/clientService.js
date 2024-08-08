@@ -12,7 +12,7 @@ export const fetchClients = async () => {
 
 export const createClient = async (clientData) => {
     try {
-        const response = await api.post('/api/clients', clientData);
+        const response = await api.post('/clients', clientData);
         return response.data;
     } catch (error) {
         console.error('Error creating client:', error);
@@ -22,7 +22,7 @@ export const createClient = async (clientData) => {
 
 export const updateClient = async (id, clientData) => {
     try {
-        const response = await api.put(`/api/clients/${id}`, clientData);
+        const response = await api.put(`/clients/${id}`, clientData);
         return response.data;
     } catch (error) {
         console.error('Error updating client:', error);
@@ -32,7 +32,7 @@ export const updateClient = async (id, clientData) => {
 
 export const deleteClient = async (id) => {
     try {
-        await api.delete(`/api/clients/${id}`);
+        await api.delete(`/clients/${id}`);
     } catch (error) {
         console.error('Error deleting client:', error);
         throw error;
