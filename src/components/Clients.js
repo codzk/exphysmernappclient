@@ -1,7 +1,51 @@
 import React, { useState, useEffect } from 'react';
 import './Clients.css';
 import Sidebar from './Sidebar';
-import { fetchClients, createClient, deleteClient } from '../clientService';
+import api from './axios';
+
+// Fetch all clients from the backend
+const fetchClients = async () => {
+    try {
+        const response = await api.get('/clients');
+        return response.data;
+    } catch (error) {
+        console.error('Error fetching clients:', error);
+        throw error; // Re-throwing the error to be handled by the calling function
+    }
+};
+
+// Create a new client in the backend
+const createClient = async (clientData) => {
+    try {
+        const response = await api.post('/clients', clientData);
+        return response.data;
+    } catch (error) {
+        console.error('Error creating client:', error);
+        throw error; // Re-throwing the error to be handled by the calling function
+    }
+};
+
+// Update an existing client in the backend
+// eslint-disable-next-line no-unused-vars
+const updateClient = async (id, clientData) => {
+    try {
+        const response = await api.put(`/clients/${id}`, clientData);
+        return response.data;
+    } catch (error) {
+        console.error('Error updating client:', error);
+        throw error; // Re-throwing the error to be handled by the calling function
+    }
+};
+
+// Delete a client from the backend
+const deleteClient = async (id) => {
+    try {
+        await api.delete(`/clients/${id}`);
+    } catch (error) {
+        console.error('Error deleting client:', error);
+        throw error; // Re-throwing the error to be handled by the calling function
+    }
+};
 
 const Clients = () => {
     const [clients, setClients] = useState([]);
