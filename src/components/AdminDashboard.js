@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from "react";
-import api from "../axios";
+import React, { useState, useEffect } from 'react';
 import './AdminDashboard.css';
+import Sidebar from './Sidebar';
+import api from '../axios';
 
 const AdminDashboard = () => {
     const [appointments, setAppointments] = useState([]);
@@ -47,66 +48,80 @@ const AdminDashboard = () => {
         }
     };
 
-    const deleteAppointment = async (id) => {
+    const updateAppointmentStatus = async (id, status) => {
         try {
-            await api.delete(`/appointments/${id}`);
-            setAppointments(appointments.filter(appointment => appointment._id !== id));
-            setMessage('Appointment deleted successfully');
+            const response = await api.put(`/appointments/${id}`, { status });
+            setAppointments(appointments.map(app => app._id === id ? response.data : app));
+            setMessage('Appointment updated successfully');
             setError('');
         } catch (err) {
-            console.error('Error deleting appointment:', err);
-            setError('Failed to delete appointment');
+            console.error('Error updating appointment status:', err);
+            setError('Failed to update appointment status');
             setMessage('');
         }
     };
 
     return (
         <div className="admin-dashboard">
-            <h2>Admin Dashboard</h2>
-            <form onSubmit={addAppointment}>
-                <input
-                    type="date"
-                    name="date"
-                    value={newAppointment.date}
-                    onChange={handleInputChange}
-                    required
-                />
-                <input
-                    type="time"
-                    name="time"
-                    value={newAppointment.time}
-                    onChange={handleInputChange}
-                    required
-                />
-                <input
-                    type="text"
-                    name="name"
-                    placeholder="Name"
-                    value={newAppointment.name}
-                    onChange={handleInputChange}
-                    required
-                />
-                <select
-                    name="status"
-                    value={newAppointment.status}
-                    onChange={handleInputChange}
-                >
-                    <option value="Active">Active</option>
-                    <option value="Completed">Completed</option>
-                    <option value="Cancelled">Cancelled</option>
-                </select>
-                <button type="submit">Add Appointment</button>
-            </form>
-            {message && <p className="message">{message}</p>}
-            {error && <p className="error">{error}</p>}
-            <ul>
-                {appointments.map(appointment => (
-                    <li key={appointment._id}>
-                        {appointment.date} {appointment.time} - {appointment.name} ({appointment.status})
-                        <button onClick={() => deleteAppointment(appointment._id)}>Delete</button>
-                    </li>
-                ))}
-            </ul>
+            <Sidebar />
+            <div className="main-content">
+                <h3>Overview of Appointments</h3>
+                <table className="appointments-table">
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Time</th>
+                            <th>Name</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {appointments.map(app => (
+                            <tr key={app._id}>
+                                <td>{app.date}</td>
+                                <td>{app.time}</td>
+                                <td>{app.name}</td>
+                                <td>
+                                    <select
+                                        value={app.status}
+                                        onChange={(e) => updateAppointmentStatus(app._id, e.target.value)}
+                                    >
+                                        <option value="Active">Active</option>
+                                        <option value="Upcoming">Upcoming</option>
+                                        <option value="Completed">Completed</option>
+                                    </select>
+                                </td>
+                            </tr>
+                        ))}
+                    </tbody>
+                </table>
+                <h3>Add New Appointment</h3>
+                <form className="add-appointment-form" onSubmit={addAppointment}>
+                    <label>
+                        Date:
+                        <input type="date" name="date" value={newAppointment.date} onChange={handleInputChange} required />
+                    </label>
+                    <label>
+                        Time:
+                        <input type="time" name="time" value={newAppointment.time} onChange={handleInputChange} required />
+                    </label>
+                    <label>
+                        Name:
+                        <input type="text" name="name" value={newAppointment.name} onChange={handleInputChange} required />
+                    </label>
+                    <label>
+                        Status:
+                        <select name="status" value={newAppointment.status} onChange={handleInputChange}>
+                            <option value="Active">Active</option>
+                            <option value="Upcoming">Upcoming</option>
+                            <option value="Completed">Completed</option>
+                        </select>
+                    </label>
+                    <button type="submit">Add Appointment</button>
+                </form>
+                {message && <p className="message">{message}</p>}
+                {error && <p className="error">{error}</p>}
+            </div>
         </div>
     );
 };
