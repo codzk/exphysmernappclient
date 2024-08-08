@@ -72,7 +72,7 @@ const Clients = () => {
                                 <td>{client.dob}</td>
                                 <td>{client.contact}</td>
                                 <td>{client.gp}</td>
-                                <td className="actions">
+                                <td>
                                     <button className="delete-button" onClick={() => handleDeleteClient(client._id)}>Delete</button>
                                 </td>
                             </tr>
