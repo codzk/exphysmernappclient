@@ -61,6 +61,19 @@ const AdminDashboard = () => {
         }
     };
 
+    const deleteAppointment = async (id) => {
+        try {
+            await api.delete(`/appointments/${id}`);
+            setAppointments(appointments.filter(app => app._id !== id));
+            setMessage('Appointment deleted successfully');
+            setError('');
+        } catch (err) {
+            console.error('Error deleting appointment:', err);
+            setError('Failed to delete appointment');
+            setMessage('');
+        }
+    };
+
     return (
         <div className="admin-dashboard">
             <Sidebar />
@@ -73,6 +86,7 @@ const AdminDashboard = () => {
                             <th>Time</th>
                             <th>Name</th>
                             <th>Status</th>
+                            <th>Actions</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -90,6 +104,9 @@ const AdminDashboard = () => {
                                         <option value="Upcoming">Upcoming</option>
                                         <option value="Completed">Completed</option>
                                     </select>
+                                </td>
+                                <td>
+                                    <button onClick={() => deleteAppointment(app._id)}>Delete</button>
                                 </td>
                             </tr>
                         ))}
