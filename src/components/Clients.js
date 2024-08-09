@@ -40,7 +40,7 @@ const Clients = () => {
     const [newClient, setNewClient] = useState({
         name: '',
         dob: '',
-        contact: '',
+        contactNumber: '', // Changed from 'contact' to 'contactNumber'
         gp: ''
     });
     const [error, setError] = useState('');
@@ -69,7 +69,7 @@ const Clients = () => {
         try {
             const addedClient = await createClient(newClient);
             setClients([...clients, addedClient]);
-            setNewClient({ name: '', dob: '', contact: '', gp: '' });
+            setNewClient({ name: '', dob: '', contactNumber: '', gp: '' });
             setMessage('Client added successfully');
             setError('');
         } catch (error) {
@@ -112,7 +112,7 @@ const Clients = () => {
                             <tr key={client._id}>
                                 <td>{client.name}</td>
                                 <td>{new Date(client.dob).toLocaleDateString()}</td>
-                                <td>{client.contact}</td>
+                                <td>{client.contactNumber}</td> {/* Changed from 'contact' to 'contactNumber' */}
                                 <td>{client.gp}</td>
                                 <td>
                                     <button 
@@ -152,8 +152,8 @@ const Clients = () => {
                         Contact Number:
                         <input 
                             type="tel" 
-                            name="contact" 
-                            value={newClient.contact} 
+                            name="contactNumber" // Changed from 'contact' to 'contactNumber'
+                            value={newClient.contactNumber} 
                             onChange={handleInputChange} 
                             required 
                         />
