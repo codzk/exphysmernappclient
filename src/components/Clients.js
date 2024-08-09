@@ -3,6 +3,7 @@ import './Clients.css';
 import Sidebar from './Sidebar';
 import api from '../api';
 
+// Fetch all clients from the backend
 const fetchClients = async () => {
     try {
         const response = await api.get('/clients');
@@ -13,6 +14,7 @@ const fetchClients = async () => {
     }
 };
 
+// Create a new client in the backend
 const createClient = async (clientData) => {
     try {
         const response = await api.post('/clients', clientData);
@@ -23,6 +25,7 @@ const createClient = async (clientData) => {
     }
 };
 
+// Delete a client from the backend
 const deleteClient = async (id) => {
     try {
         await api.delete(`/clients/${id}`);
@@ -40,6 +43,8 @@ const Clients = () => {
         contact: '',
         gp: ''
     });
+    const [error, setError] = useState('');
+    const [message, setMessage] = useState('');
 
     useEffect(() => {
         const loadClients = async () => {
@@ -48,6 +53,7 @@ const Clients = () => {
                 setClients(clientsData);
             } catch (error) {
                 console.error('Error fetching clients:', error);
+                setError('Failed to fetch clients');
             }
         };
         loadClients();
@@ -64,8 +70,12 @@ const Clients = () => {
             const addedClient = await createClient(newClient);
             setClients([...clients, addedClient]);
             setNewClient({ name: '', dob: '', contact: '', gp: '' });
+            setMessage('Client added successfully');
+            setError('');
         } catch (error) {
             console.error('Error adding client:', error);
+            setError('Failed to add client');
+            setMessage('');
         }
     };
 
@@ -73,8 +83,12 @@ const Clients = () => {
         try {
             await deleteClient(id);
             setClients(clients.filter(client => client._id !== id));
+            setMessage('Client deleted successfully');
+            setError('');
         } catch (error) {
             console.error('Error deleting client:', error);
+            setError('Failed to delete client');
+            setMessage('');
         }
     };
 
@@ -156,6 +170,8 @@ const Clients = () => {
                     </label>
                     <button type="submit">Add Client</button>
                 </form>
+                {message && <p className="message">{message}</p>}
+                {error && <p className="error">{error}</p>}
             </div>
         </div>
     );
