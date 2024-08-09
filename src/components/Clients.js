@@ -3,47 +3,32 @@ import './Clients.css';
 import Sidebar from './Sidebar';
 import api from '../api';
 
-// Fetch all clients from the backend
 const fetchClients = async () => {
     try {
         const response = await api.get('/clients');
         return response.data;
     } catch (error) {
         console.error('Error fetching clients:', error);
-        throw error; // Re-throwing the error to be handled by the calling function
+        throw error;
     }
 };
 
-// Create a new client in the backend
 const createClient = async (clientData) => {
     try {
         const response = await api.post('/clients', clientData);
         return response.data;
     } catch (error) {
         console.error('Error creating client:', error);
-        throw error; // Re-throwing the error to be handled by the calling function
+        throw error;
     }
 };
 
-// Update an existing client in the backend
-// eslint-disable-next-line no-unused-vars
-const updateClient = async (id, clientData) => {
-    try {
-        const response = await api.put(`/clients/${id}`, clientData);
-        return response.data;
-    } catch (error) {
-        console.error('Error updating client:', error);
-        throw error; // Re-throwing the error to be handled by the calling function
-    }
-};
-
-// Delete a client from the backend
 const deleteClient = async (id) => {
     try {
         await api.delete(`/clients/${id}`);
     } catch (error) {
         console.error('Error deleting client:', error);
-        throw error; // Re-throwing the error to be handled by the calling function
+        throw error;
     }
 };
 
@@ -65,7 +50,6 @@ const Clients = () => {
                 console.error('Error fetching clients:', error);
             }
         };
-
         loadClients();
     }, []);
 
@@ -113,11 +97,16 @@ const Clients = () => {
                         {clients.map(client => (
                             <tr key={client._id}>
                                 <td>{client.name}</td>
-                                <td>{client.dob}</td>
+                                <td>{new Date(client.dob).toLocaleDateString()}</td>
                                 <td>{client.contact}</td>
                                 <td>{client.gp}</td>
                                 <td>
-                                    <button className="delete-button" onClick={() => handleDeleteClient(client._id)}>Delete</button>
+                                    <button 
+                                        className="delete-button" 
+                                        onClick={() => handleDeleteClient(client._id)}
+                                    >
+                                        Delete
+                                    </button>
                                 </td>
                             </tr>
                         ))}
@@ -127,19 +116,43 @@ const Clients = () => {
                 <form className="add-client-form" onSubmit={addClient}>
                     <label>
                         Name:
-                        <input type="text" name="name" value={newClient.name} onChange={handleInputChange} required />
+                        <input 
+                            type="text" 
+                            name="name" 
+                            value={newClient.name} 
+                            onChange={handleInputChange} 
+                            required 
+                        />
                     </label>
                     <label>
                         D.O.B:
-                        <input type="date" name="dob" value={newClient.dob} onChange={handleInputChange} required />
+                        <input 
+                            type="date" 
+                            name="dob" 
+                            value={newClient.dob} 
+                            onChange={handleInputChange} 
+                            required 
+                        />
                     </label>
                     <label>
                         Contact Number:
-                        <input type="tel" name="contact" value={newClient.contact} onChange={handleInputChange} required />
+                        <input 
+                            type="tel" 
+                            name="contact" 
+                            value={newClient.contact} 
+                            onChange={handleInputChange} 
+                            required 
+                        />
                     </label>
                     <label>
                         GP:
-                        <input type="text" name="gp" value={newClient.gp} onChange={handleInputChange} required />
+                        <input 
+                            type="text" 
+                            name="gp" 
+                            value={newClient.gp} 
+                            onChange={handleInputChange} 
+                            required 
+                        />
                     </label>
                     <button type="submit">Add Client</button>
                 </form>
